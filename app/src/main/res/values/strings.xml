@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">StarkSpireshopping</string>
+    <string name="shopbycat">Shop by Category</string>
+    <string name="cat_position">cat_position</string>
+    <string name="item_position">item_position</string>
+    <string name="url">https://stark-spire-93433.herokuapp.com/json</string>
 </resources>

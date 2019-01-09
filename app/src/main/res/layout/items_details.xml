@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="@drawable/orangerect"
+    android:id="@+id/relativelayout"
+    android:layout_margin="5dp">
+
+    <TextView
+        android:id="@+id/dateTV"
+        style="@style/CLW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:padding="5dp"
+        android:layout_alignParentRight="true"
+        android:text="2016-12-09T11:16:11.000Z"/>
+    <TextView
+        android:id="@+id/titleTV"
+        style="@style/CSW"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Item"/>
+</RelativeLayout>
