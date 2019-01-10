@@ -8,7 +8,7 @@ class RankingProduct {
     var id: String? = null
 
     @SerializedName("view_count")
-    var view_count: String? = null
+    var view_count: Int? = 0
 
 
 }

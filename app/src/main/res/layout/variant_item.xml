@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/lemonrect"
+    android:id="@+id/relativelayout"
+    android:layout_margin="5dp">
+
+
+    <TextView
+        android:id="@+id/colortxtTV"
+        style="@style/CMW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/color"/>
+    <TextView
+        android:id="@+id/colorTV"
+        style="@style/CMW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="Blue"/>
+    <TextView
+        android:id="@+id/sizetxtTV"
+        style="@style/CMW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/colortxtTV"
+        android:text="@string/size"/>
+    <TextView
+        android:id="@+id/sizeTV"
+        style="@style/CMW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/colorTV"
+        android:layout_alignParentRight="true"
+        android:text="42"/>
+    <TextView
+        android:id="@+id/pricetxtTV"
+        style="@style/CMW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sizetxtTV"
+        android:text="@string/price"/>
+    <TextView
+        android:id="@+id/priceTV"
+        style="@style/CMW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sizeTV"
+        android:layout_alignParentRight="true"
+        android:text="1000"/>
+</RelativeLayout>

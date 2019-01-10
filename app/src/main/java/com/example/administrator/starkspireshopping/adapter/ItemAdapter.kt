@@ -9,10 +9,11 @@ import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.example.administrator.starkspire.model.Product
+import com.example.administrator.starkspireshopping.Database.DbTable
 import com.example.administrator.starkspireshopping.Main3Activity
 import com.example.administrator.starkspireshopping.R
 
-class ItemAdapter(internal var context: Context, internal var itemList: List<Product>) : RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
+class ItemAdapter(internal var context: Context, internal var itemList: List<Product>,internal var dbTable: DbTable) : RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
         val layoutresource = R.layout.items_details
@@ -24,11 +25,23 @@ class ItemAdapter(internal var context: Context, internal var itemList: List<Pro
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
         viewHolder.titleTV.text = itemList[i].name
         viewHolder.dateTV.text = itemList[i].date_added
-        viewHolder.relativelayout.setOnClickListener(View.OnClickListener {
-            val intent = Intent(context, Main3Activity::class.java)
-            intent.putExtra(context.getString(R.string.item_position), i)
-            context.startActivity(intent)
-        })
+        val tax = dbTable.getTaxData(itemList[i].id!!)
+        viewHolder.taxNameTV.text ="${tax.name}: "
+        viewHolder.taxvalueTV.text = tax.value
+        val count = dbTable.getVariantsCount(itemList[i].id!!)
+        if (count>0) {
+            viewHolder.variantCountTV.text = "$count Variants available"
+        }else{
+            viewHolder.variantCountTV.text =""
+        }
+        viewHolder.itemView.setOnClickListener {
+            if(count>0) {
+                val intent = Intent(context, Main3Activity::class.java)
+                intent.putExtra(context.getString(R.string.productid), itemList[i].id)
+                intent.putExtra(context.getString(R.string.productName), itemList[i].name)
+                context.startActivity(intent)
+            }
+        }
     }
 
     override fun getItemCount(): Int {
@@ -36,14 +49,19 @@ class ItemAdapter(internal var context: Context, internal var itemList: List<Pro
     }
 
     inner class ViewHolder internal constructor(convertView: View) : RecyclerView.ViewHolder(convertView) {
-        internal lateinit var titleTV: TextView
-        internal lateinit var dateTV: TextView
-        internal lateinit var relativelayout: RelativeLayout
+        internal var titleTV: TextView
+        internal var dateTV: TextView
+        internal var taxNameTV: TextView
+        internal var taxvalueTV: TextView
+        internal var variantCountTV: TextView
+
 
         init {
             titleTV = convertView.findViewById(R.id.titleTV)
             dateTV = convertView.findViewById(R.id.dateTV)
-            relativelayout = convertView.findViewById(R.id.relativelayout)
+            taxNameTV = convertView.findViewById(R.id.taxNameTV)
+            taxvalueTV = convertView.findViewById(R.id.taxvalueTV)
+            variantCountTV = convertView.findViewById(R.id.variantCountTV)
         }
     }
 }

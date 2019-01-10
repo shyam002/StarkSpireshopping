@@ -7,6 +7,21 @@
     tools:context=".Main2Activity">
 
 
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+    </RadioGroup>
+    <TextView
+        android:id="@+id/noprodTV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:textColor="@color/orange"
+        android:text="@string/noproduct"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/itemRV"
         android:layout_width="match_parent"

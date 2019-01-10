@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="100dp"
     android:background="@drawable/orangerect"
     android:id="@+id/relativelayout"
     android:layout_margin="5dp">
@@ -17,9 +17,36 @@
         android:text="2016-12-09T11:16:11.000Z"/>
     <TextView
         android:id="@+id/titleTV"
-        style="@style/CSW"
+        style="@style/CLMW"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="Item"/>
+    <TextView
+        style="@style/CLSW"
+        android:id="@+id/taxNameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:text="VAT:"/>
+    <TextView
+        style="@style/CLSW"
+        android:id="@+id/taxvalueTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/taxNameTV"
+        android:layout_alignParentBottom="true"
+        android:text="12.5"/>
+
+    <TextView
+        style="@style/CLSW"
+        android:id="@+id/variantCountTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="4 variants available"/>
 </RelativeLayout>
